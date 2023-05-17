@@ -1,7 +1,9 @@
 DROP DATABASE IF EXISTS events_dev;
 CREATE DATABASE events_dev;
 
-\c events_dev
+\c events_dev;
+
+
 --SONG TABLES
 CREATE TABLE song_genres (
     id SERIAL PRIMARY KEY,
@@ -10,14 +12,14 @@ CREATE TABLE song_genres (
 
 Create TABLE songs (
     id SERIAL PRIMARY KEY,
-    genre_id INT FOREIGN KEY,
+    genre_id INT NOT NULL REFERENCES song_genres (id),
     title TEXT NOT NULL,
     song_url TEXT NOT NULL,
     artist TEXT NOT NULL,
     length TEXT
 );
 
-CREATE TABLE playist (
+CREATE TABLE playlist (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
     song_id INT NOT NULL REFERENCES songs (id),
@@ -25,6 +27,11 @@ CREATE TABLE playist (
 );
 
 --QUOTE TABLES
+CREATE TABLE categories (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
 CREATE TABLE quotes (
     id SERIAL PRIMARY KEY,
     category_id INT NOT NULL REFERENCES categories (id),
@@ -32,10 +39,6 @@ CREATE TABLE quotes (
     quote TEXT NOT NULL
 );
 
-CREATE TABLE categories (
-    id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL
-);
 
 CREATE TABLE quote_list (
     id SERIAL PRIMARY KEY,
@@ -56,7 +59,7 @@ CREATE TABLE recipe_details (
 
 CREATE TABLE measure (
     id SERIAL PRIMARY KEY,
-    name 
+    name TEXT NOT NULL
 );
 
 CREATE TABLE ingredient (
@@ -68,7 +71,7 @@ CREATE TABLE recipes (
     id SERIAL PRIMARY KEY,
     recipe_details_id INT NOT NULL REFERENCES recipe_details (id),
     ingredient_id INT NOT NULL REFERENCES ingredient (id),
-    measure_id INT NOT NULL REFERENCES measure (id),
+    measure_id INT REFERENCES measure (id),
     amount INT
 );
 
@@ -81,7 +84,7 @@ CREATE TABLE event_menu (
 CREATE TABLE events (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
-    playlist_id INT NOT NULL REFERENCES playist (id),
+    playlist_id INT NOT NULL REFERENCES playlist (id),
     event_menu_id INT NOT NULL REFERENCES event_menu (id),
     quote_list_id INT NOT NULL REFERENCES quote_list (id),
     event_type TEXT NOT NULL

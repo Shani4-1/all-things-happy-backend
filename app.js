@@ -10,4 +10,8 @@ app.get('/', (req, res) => {
     res.send('Welcome to My Happy Place');
 });
 
+app.get("*", (req, res) => {
+    res.status(404).send("Page not found");
+});
+
 module.exports = app;
