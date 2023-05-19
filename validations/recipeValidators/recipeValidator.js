@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const createValidator = require("./createValidator.js");
+const createValidator = require("../createValidator.js");
 
 const recipeSchema = Joi.object({
     recipe_details_id: Joi.number().required(),

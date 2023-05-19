@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const createValidator = require("./createValidator.js");
+const createValidator = require("../createValidator.js");
 
 const songSchema = Joi.object({
     genre_id: Joi.number().required(),

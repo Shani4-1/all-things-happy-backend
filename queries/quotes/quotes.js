@@ -1,4 +1,4 @@
-const db = require("../db/dbConfig.js");
+const db = require("../../db/dbConfig.js");
 
 const getAllQuotes = async () => {
     try {
@@ -65,5 +65,5 @@ module.exports = {
     getOneQuote,
     addNewQuote,
     updateQuote,
-    deleteQuote,
+    deleteQuote
 };

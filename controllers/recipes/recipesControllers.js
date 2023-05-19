@@ -1,7 +1,7 @@
 const express = require("express");
 
 const recipes = express.Router();
-const validateRecipe = require("../validations/recipeValidator.js");
+const validateRecipe = require("../../validations/recipeValidators/recipeValidator.js");
 
 const {
   getAllRecipes,
@@ -9,7 +9,7 @@ const {
   addNewRecipe,
   updateRecipe,
   deleteRecipe,
-} = require("../queries/recipes.js");
+} = require("../../queries/recipes/recipes.js");
 
 recipes.get("/", async (req, res) => {
   const allRecipes = await getAllRecipes();

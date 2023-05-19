@@ -1,9 +1,9 @@
 const express = require('express');
 const cors = require('cors');
-const eventsController = require("./controllers/eventscontrollers.js");
-const songsController = require("./controllers/songsControllers.js")
-const recipesController = require("./controllers/recipesControllers.js")
-const quotesController = require("./controllers/quotesControllers.js");
+const eventsController = require("./controllers/events/eventscontrollers.js");
+const songsController = require("./controllers/songs/songsControllers.js")
+const recipesController = require("./controllers/recipes/recipesControllers.js")
+const quotesController = require("./controllers/quotes/quotesControllers.js");
 
 
 

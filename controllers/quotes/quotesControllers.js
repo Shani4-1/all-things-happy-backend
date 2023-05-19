@@ -8,9 +8,9 @@ const {
   addNewQuote,
   updateQuote,
   deleteQuote,
-} = require("../queries/quotes.js");
+} = require("../../queries/quotes/quotes.js");
 
-const validateQuote = require("../validations/quoteValidator");
+const validateQuote = require("../../validations/quoteValidators/quoteValidator.js");
 
 quotes.get("/", async (req, res) => {
   const allQuotes = await getAllQuotes();

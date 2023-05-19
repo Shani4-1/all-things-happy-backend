@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const createValidator = require("./createValidator.js");
+const createValidator = require("../createValidator.js");
 
 const quoteSchema = Joi.object({
     category_id: Joi.number().required(),

@@ -1,4 +1,4 @@
-const db = require("../db/dbConfig.js");
+const db = require("../../db/dbConfig.js");
 
 const getAllRecipes = async () => {
     try {
