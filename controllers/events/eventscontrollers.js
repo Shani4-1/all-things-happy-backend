@@ -2,11 +2,11 @@ const express = require("express");
 
 const events = express.Router();
 
-const validateEvent = require("../validations/eventValidator.js")
+const validateEvent = require("../../validations/eventValidators/eventValidator.js")
 const {
     getAllEvents,
     getOneEvent
-} = require("../queries/events.js");
+} = require("../..//queries/events/events.js");
 
 
 

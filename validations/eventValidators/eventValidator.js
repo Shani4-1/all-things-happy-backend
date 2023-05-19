@@ -1,5 +1,5 @@
 const Joi = require("joi");
-const createValidator = require("./createValidator.js");
+const createValidator = require("../createValidator.js");
 
 const eventSchema = Joi.object({
     name: Joi.string().required(),
@@ -11,4 +11,4 @@ const eventSchema = Joi.object({
 
 
 
-module.exports = createValidator(eventSchema)
+module.exports = createValidator(eventSchema);
