@@ -3,17 +3,17 @@ const express = require("express");
 const categories = express.Router();
 
 const {
-    getAllcategories,
+    getAllCategories,
     getOneCategory,
     addNewCategory,
     updateCategory,
-    deleteCateory
-} = require("../../queries/quotes/categories,js");
+    deleteCategory
+} = require("../../queries/quotes/categories.js");
 
 const validateCategory = require("../../validations/quoteValidators/categoryValidator.js");
 
 categories.get("/", async (req, res) => {
-    const allCategories = await getAllcategories();
+    const allCategories = await getAllCategories();
     if (!allCategories.error) {
         res.status(200).json(allCategories);
     } else {
@@ -73,7 +73,7 @@ categories.put("/:id", validateCategory, async (req, res) => {
 
 categories.delete("/:id", async (req, res) => {
     const { id } = req.params;
-    const deletedCategory = await deleteCateory(id);
+    const deletedCategory = await deleteCategory(id);
 
     if (deletedCategory.id) {
         res.status(201).json(deletedCategory);

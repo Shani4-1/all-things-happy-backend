@@ -58,7 +58,7 @@ const deleteMeasurement = async (id) => {
     }
 };
 
-module.export = {
+module.exports = {
     getAllMeasurements,
     getOneMeasurement,
     addNewMeasurement,

@@ -8,7 +8,7 @@ const {
     addNewMenu,
     updateMenu,
     deleteMenu,
-    getAllMenus
+    
 } = require("../../queries/recipes/event_menu.js");
 
 const validateMenu = require("../../validations/recipeValidators/event_menuValidator.js");
@@ -61,7 +61,7 @@ menus.put("/:id", validateMenu, async (req, res) => {
 
     try {
         const updatedMenu = await updateMenu(id, menu);
-        if(updatedMenu.id) {
+        if (updatedMenu.id) {
             res.status(200).json(updatedMenu);
         } else {
             res.status(404).json({error: "song not found"})
@@ -78,7 +78,7 @@ menus.delete("/:id", async (req, res) => {
     if (deletedMenu.id) {
         res.status(201).json(deletedMenu);
     } else {
-        res.status(404).json({error: "menu not found"})
+        res.status(404).json({error: "menu not found"});
     }
 });
 

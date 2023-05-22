@@ -1,6 +1,13 @@
 
 \c events_dev;
 
+ALTER TABLE event_menu DROP CONSTRAINT event_menu_recipe_id_fkey;
+ALTER TABLE event_menu ADD CONSTRAINT event_menu_recipes_id_fkey FOREIGN KEY (recipe_id) REFERENCES recipes (id);
+
+-- Modify foreign key constraint in events table
+ALTER TABLE events DROP CONSTRAINT events_event_menu_id_fkey;
+ALTER TABLE events ADD CONSTRAINT events_event_menu_id_fkey FOREIGN KEY (event_menu_id) REFERENCES event_menu (id);
+
 
 INSERT INTO song_genres (genre_type) VALUES
 ('R & B'),
@@ -71,7 +78,7 @@ INSERT INTO measure (name) VALUES
 ('pound'),
 ('ounce');
 
-INSERT INTO ingredient (name) VALUES
+INSERT INTO ingredients (name) VALUES
 ('Ziti pasta'),
 ('Onion, chopped'),
 ('Green pepper, chopped'),

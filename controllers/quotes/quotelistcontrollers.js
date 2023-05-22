@@ -1,6 +1,6 @@
 const express = require("express");
 
-const quoteList = express.Router;
+const quoteList = express.Router();
 
 const {
     getAllList,

@@ -62,7 +62,7 @@ CREATE TABLE measure (
     name TEXT NOT NULL
 );
 
-CREATE TABLE ingredient (
+CREATE TABLE ingredients (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL
 );
@@ -70,7 +70,7 @@ CREATE TABLE ingredient (
 CREATE TABLE recipes (
     id SERIAL PRIMARY KEY,
     recipe_details_id INT NOT NULL REFERENCES recipe_details (id),
-    ingredient_id INT NOT NULL REFERENCES ingredient (id),
+    ingredient_id INT NOT NULL REFERENCES ingredients (id),
     measure_id INT REFERENCES measure (id),
     amount INT
 );
